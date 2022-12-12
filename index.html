@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+    <style>
+        .head{
+           
+            width: 100%;
+            margin: 1rem;
+            font-size: 2rem;
+            font-weight: 900;
+            text-align: center;
+            background: #bbb;
+        }
+
+        .btn{
+            padding: 0.7rem;
+            margin: 5px;
+            background: rgb(161, 163, 163);
+            width: 41%;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+
+        }
+
+        .center{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 88vh;
+            width: 100%;
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        
+            <h3>Color Flipper</h3>
+        
+       
+        
+        
+        </div>
+    </div>
+    <div class="center">
+        <h1>BACKGROUND COLOR: <span class="colorValue"></span></h1>
+        <button class="changebtn btn">Click Me for RGB value</button>
+        <button class="btn hexbtn">Click Me for HEX value </button>
+    </div>
+
+    <script>
+       
+       
+       
+          
+        document.querySelector(".changebtn").addEventListener('click', function(){
+            let random = Math.floor(Math.random()*255 +1);
+        let random1 = Math.floor(Math.random()*255 +1);
+        let random2 = Math.floor(Math.random()*255 +1);
+        let rgbColor =  `rgb(${random},${random1},${random2})`;
+          console.log(rgbColor);
+            document.body.style.backgroundColor=rgbColor;
+            document.querySelector('.colorValue').innerHTML=rgbColor;
+        })
+
+   
+
+
+
+        const hexValues = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+         document.querySelector('.hexbtn').addEventListener('click',
+        function(){
+            let hex = '#'
+
+        for (let i = 0; i < 6; i++){
+            const index = Math.floor(Math.random()*hexValues.length)
+            // console.log(index);
+            hex += hexValues[index]
+            console.log(hex)
+
+        }
+        document.querySelector('.colorValue').innerHTML = hex
+        document.body.style.backgroundColor = hex;
+    }
+
+        )
+/*
+
+        (function() {
+    const body = document.querySelector('body')
+    
+    const value = document.querySelector('#hex-value')
+
+    button.addEventListener('click', changeHex)
+
+    function changeHex(){
+        
+} )()
+*/
+    </script>
+
+    
+</body>
+</html>
